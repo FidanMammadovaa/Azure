@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { clear, getProducts } from "./store/reducer"
+import {  getProducts } from "./store/reducer"
 import { useNavigate } from 'react-router-dom'
 import "./Books.css";
 
@@ -9,9 +9,6 @@ export default function Books() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    useEffect(() => {
-        dispatch(clear())
-    }, [])
 
     useEffect(() => {
         dispatch(getProducts())
