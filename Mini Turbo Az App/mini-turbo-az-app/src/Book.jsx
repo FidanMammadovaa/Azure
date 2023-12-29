@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductById } from './store/reducer';
+import { clear, getProductById } from './store/reducer';
 import "./Book.css";
 export default function Book() {
     let { id } = useParams();
@@ -9,6 +9,10 @@ export default function Book() {
     console.log(id);
     let dispatch = useDispatch()
     let book = useSelector((state) => state.products.book)
+
+    useEffect(() => {
+        dispatch(clear())
+    }, [])
 
     useEffect(() => {
         if (id) {
